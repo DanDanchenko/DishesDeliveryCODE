@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DishesDelivery.Models.Dish>
+
+@{
+    ViewData["Title"] = "List of Dishes";
+}
+
+<h1>List of Dishes</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @if (item.Image != null)
+                    {
+                        <img style='width:80px; height:60px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Image))" />
+                    }
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+
+                    <a asp-action="ClientDetails" asp-route-id="@item.Id">Details</a>
+                    <a asp-action="AddToBusket" asp-route-id="@item.Id">AddToBusket</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

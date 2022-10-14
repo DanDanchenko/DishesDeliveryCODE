@@ -1,0 +1,70 @@
+﻿@model IEnumerable<DishesDelivery.Models.Order>
+
+@{
+    ViewData["Title"] = "History of orders";
+}
+
+<h1> History of orders</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateTime)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.CurierId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateTime)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurierId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Client.Id)
+                </td>
+                <td>
+                    <a asp-action="GetReadyOrder" asp-route-id="@item.Id">Get ready order</a> |
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

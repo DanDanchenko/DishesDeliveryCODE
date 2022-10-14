@@ -1,0 +1,17 @@
+﻿@{
+    switch (DishesContext.ActiveSiteViewMode)
+    {
+        case SiteViewMode.Login:
+            Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+            break;
+        case SiteViewMode.Curier:
+            Layout = "~/Views/Shared/_LayoutCurier.cshtml";
+            break;
+        case SiteViewMode.User:
+            Layout = "~/Views/Shared/_LayoutUser.cshtml";
+            break;
+        case SiteViewMode.Chef:
+            Layout = "~/Views/Shared/_LayoutChef.cshtml";
+            break;
+    }
+}

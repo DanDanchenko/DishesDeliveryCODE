@@ -1,0 +1,68 @@
+﻿@model DishesDelivery.Models.Order
+
+@{
+    ViewData["Title"] = "Active Order Details";
+}
+
+<h2> @ViewBag.State </h2>
+
+
+<h1>Active Order Details:</h1>
+
+<div>
+    <h4>Order  @Html.DisplayFor(model => model.Id) </h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreateTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CloseTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CloseTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ChefId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ChefId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CurierId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CurierId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Client)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Client.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    Busket:
+    @ViewBag.busket
+
+    @if (DishesContext.ActiveOrder.State == 5)
+    {
+        <a asp-action="CloseOrder">Close order</a>
+    }
+
+  
+</div>
+<div>
+   
+    
+</div>
